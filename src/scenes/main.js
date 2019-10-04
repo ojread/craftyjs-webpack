@@ -31,6 +31,7 @@ Crafty.scene('main', function () {
 
     Crafty.e('Bounce, RandomPos, DOM, Image')
         .attr({w: 231, h: 90})
+        .randomPos()
         .image(webpackLogo);
-
+        
 });
