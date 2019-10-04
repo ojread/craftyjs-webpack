@@ -1,0 +1,24 @@
+{
+  "name": "craftyjs-webpack",
+  "version": "0.1.0",
+  "description": "Build crafty.js games with webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
+  },
+  "author": "Oliver Read",
+  "license": "ISC",
+  "devDependencies": {
+    "craftyjs": "^0.9.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  }
+}
