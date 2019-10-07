@@ -16,12 +16,12 @@ Crafty.c('Bounce', {
 
     // Bind events to methods.
     events: {
-        'UpdateFrame': '_updateFrame',
-        'HitOn': '_hitOn',
+        UpdateFrame: '_updateFrame',
+        HitOn: '_hitOn',
     },
 
-    // Called each frame.
-    _updateFrame({frame, dt, gameTime}) {
+    // Called each frame with delta time.
+    _updateFrame({ dt }) {
         // Move the entity depending on direction and elapsed time.
         const delta = this._speed * dt;
         this.shift(this._dx * delta, this._dy * delta);
@@ -31,9 +31,10 @@ Crafty.c('Bounce', {
     _hitOn(hitData) {
         hitData.forEach(hit => {
             // Minimum translation vector gives us new direction.
+            // Use it if not zero so we move diagonally.
             this.attr({
-                _dx: hit.nx ? hit.nx : this._dx,
-                _dy: hit.ny ? hit.ny : this._dy,
+                _dx: hit.nx || this._dx,
+                _dy: hit.ny || this._dy,
             });
         });
     },

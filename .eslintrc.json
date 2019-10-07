@@ -1,0 +1,21 @@
+{
+    "extends": ["airbnb-base", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "no-underscore-dangle": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.dev.js"
+            }
+        }
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "Crafty": true
+    }
+}

@@ -1,21 +1,23 @@
 // Import asset files
-import craftyLogo from "~/assets/images/crafty-logo.png";
-import webpackLogo from "~/assets/images/webpack-logo.png";
+import craftyLogo from '~/assets/images/crafty-logo.png';
+import webpackLogo from '~/assets/images/webpack-logo.png';
 
 // Define audio, image and sprite assets to be loaded.
 const assets = {
-    'images': [
-        craftyLogo,
-        webpackLogo,
-    ],
+    images: [craftyLogo, webpackLogo],
 };
 
-Crafty.scene('loading', function () {
+// Define the loading scene with a progress message.
+Crafty.scene('loading', () => {
+    let progress = 0;
+
     Crafty.background('#000');
 
-    const progress = Crafty.e('2D, DOM, Text')
-        .attr({ w: 100, h: 20, x: 150, y: 120, percent: 0 })
-        .text(function () { return `Loading ${this.percent}%`; })
+    Crafty.e('2D, DOM, Text')
+        .attr({ w: 100, h: 20, x: 150, y: 120 })
+        .text(() => {
+            return `Loading ${progress}%`;
+        })
         .dynamicTextGeneration(true)
         .textAlign('center')
         .textColor('#FFFFFF');
@@ -29,11 +31,12 @@ Crafty.scene('loading', function () {
         },
         e => {
             // Loading progress - update our message.
-            progress.percent = e.percent;
+            progress = e.percent;
         },
         e => {
             // Loading error.
-            console.error("Error loading assets", e);
-        }
+            // eslint-disable-next-line no-console
+            console.error('Error loading assets', e);
+        },
     );
 });

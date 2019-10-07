@@ -1,6 +1,3 @@
-// Import crafty.js so it's available globally.
-import 'craftyjs/dist/crafty-min';
-
 // Import our modules.
 import './components';
 import './scenes';

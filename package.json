@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch"
@@ -12,13 +14,23 @@
   "author": "Oliver Read",
   "license": "ISC",
   "devDependencies": {
-    "craftyjs": "^0.9.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
+    "prettier": "^1.18.2",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "craftyjs": "^0.9.0"
   }
 }
